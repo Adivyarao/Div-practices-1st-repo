@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('stage1') {
+        stage('stage 1') {
             steps {
-                sh 'echo "Building the project from stage 1..."'
+                echo 'Building the project from stage 1...'
             }
         }
         stage('stage2') {
             steps {
-                sh 'echo "From stage2"'
+                echo 'from stage2'
             }
             steps {
                 script {
@@ -20,4 +20,5 @@ pipeline {
         }
     }
 }
+
 
