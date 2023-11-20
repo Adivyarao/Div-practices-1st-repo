@@ -1,20 +1,22 @@
 pipeline{
-  agent any
-  stages{
-     stage('stage 1'){
-       steps{
-         echo 'Building the project...'
-                sh 'mvn clean package'
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Build successful!'
-        }
-        failure {
-            echo 'Build failed!'
-        }
-    }
-}
+       agent any
+       stages{
+              stage('stage 1'){
+                      steps{
+                         sh 'echo "Building the project from stage 1..."'
+             
+                      }
+              }
+              stage('stage2'){
+                      steps{
+                         sh '"echo from stage2"'
+                      }
+                      steps{
+                         sh '''
+                              for i in {1..5}
+                              do
+                                     echo "Hello how sre you"
+                              done
+                         '''
+                      }
+              }
