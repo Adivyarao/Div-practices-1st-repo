@@ -1,0 +1,20 @@
+pipeline{
+  agent any
+  stages{
+     stage('stage 1'){
+       steps{
+         echo 'Building the project...'
+                sh 'mvn clean package'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build successful!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
