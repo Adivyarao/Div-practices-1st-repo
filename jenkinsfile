@@ -1,24 +1,23 @@
-pipeline{
-       agent any
-       stages{
-              stage('stage 1'){
-                      steps{
-                         sh 'echo "Building the project from stage 1..."'
-             
-                      }
-              }
-              stage('stage2'){
-                      steps{
-                         sh '"echo from stage2"'
-                      }
-                      steps{
-                         sh '''
-                              for i in {1..5}
-                              do
-                                     echo "Hello how sre you"
-                              done
-                         '''
-                      }
-              }
-       }
+pipeline {
+    agent any
+    stages {
+        stage('stage1') {
+            steps {
+                sh 'echo "Building the project from stage 1..."'
+            }
+        }
+        stage('stage2') {
+            steps {
+                sh 'echo "From stage2"'
+            }
+            steps {
+                script {
+                    for (int i = 1; i <= 5; i++) {
+                        echo "Hello, how are you"
+                    }
+                }
+            }
+        }
+    }
 }
+
